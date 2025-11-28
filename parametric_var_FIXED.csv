@@ -1,0 +1,9 @@
+Portfolio,ReturnType,Method,VaR95,VaR99
+Unhedged,simple,Parametric,1058.0629728765157,1496.4386540062833
+Unhedged,log,Parametric,1049.6417552729033,1484.5283652438065
+Delta-hedged,simple,Parametric,0.0,0.0
+Delta-hedged,log,Parametric,0.0,0.0
+Gamma-hedged,simple,Parametric,1058.0629728765157,1496.4386540062833
+Gamma-hedged,log,Parametric,1049.6417552729033,1484.5283652438065
+Delta+Gamma-hedged,simple,Parametric,0.0,0.0
+Delta+Gamma-hedged,log,Parametric,0.0,0.0

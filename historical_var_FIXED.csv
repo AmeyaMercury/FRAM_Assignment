@@ -1,0 +1,9 @@
+Portfolio,ReturnType,Method,VaR95,VaR99
+Unhedged,simple,Historical_FullRepricing,687.8434031522029,889.8123420032975
+Unhedged,log,Historical_FullRepricing,691.9133909835242,896.6354054992729
+Delta-hedged,simple,Historical_FullRepricing,4.138200893066823e-12,4.929461283609271e-12
+Delta-hedged,log,Historical_FullRepricing,4.138200893066823e-12,5.120455170981586e-12
+Gamma-hedged,simple,Historical_FullRepricing,4.138200893066823e-12,4.929461283609271e-12
+Gamma-hedged,log,Historical_FullRepricing,4.138200893066823e-12,5.120455170981586e-12
+Delta+Gamma-hedged,simple,Historical_FullRepricing,4.138200893066823e-12,4.929461283609271e-12
+Delta+Gamma-hedged,log,Historical_FullRepricing,4.138200893066823e-12,5.120455170981586e-12

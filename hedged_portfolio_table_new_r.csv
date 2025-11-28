@@ -1,0 +1,2 @@
+Total_Delta_before,Total_Gamma_before,Total_Vega_before,Stock_delta_hedge,Gamma_hedge_calls,Delta_after_gamma,Stock_after_gamma_delta
+3.0,0.0,0.0,-3.0,-0.0,3.0,-3.0
