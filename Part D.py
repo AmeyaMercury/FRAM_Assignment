@@ -1,21 +1,10 @@
-"""
-Option Portfolio Construction, Hedging, and PnL Simulation
-Assumes an options CSV with columns:
-  Strike, Strike_Price, Maturity_Days, Call_Price, Put_Price
-
-Author: ChatGPT (code)
-Usage: edit `CSV_PATH` and parameters in the example at the bottom, then run.
-"""
-
 import math
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
 from scipy.optimize import brentq
 
-# --------------------------
 # Black-Scholes pricing + greeks
-# --------------------------
 def bs_price_call(S, K, T, r, sigma):
     if T <= 0 or sigma <= 0:
         return max(S - K, 0.0)
@@ -31,9 +20,7 @@ def bs_price_put(S, K, T, r, sigma):
     return K * math.exp(-r * T) * norm.cdf(-d2) - S * norm.cdf(-d1)
 
 def implied_vol_call(market_price, S, K, T, r, bracket=(1e-6, 5.0)):
-    """Invert BS to get implied vol for call using Brent root-finder.
-       Returns np.nan on failure.
-    """
+
     if market_price <= max(S - K, 0.0) - 1e-12:
         # Market price below intrinsic (bad data) — return nan
         return np.nan
@@ -65,9 +52,7 @@ def greeks_put_from_call(S, K, T, r, sigma):
     rho_put = g['rho'] - K * T * math.exp(-r * T)
     return dict(delta=delta_put, gamma=g['gamma'], vega=g['vega'], theta=theta_put, rho=rho_put)
 
-# --------------------------
 # Utility: load & prepare options data
-# --------------------------
 def load_options(csv_path):
     df = pd.read_csv(csv_path)
     # Normalize column names (small conveniences)
