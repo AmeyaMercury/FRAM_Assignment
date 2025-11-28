@@ -5,16 +5,14 @@ import pandas as pd
 from scipy.stats import norm
 from scipy.optimize import brentq
 
-# ---------- User settings ----------
 OPT_CSV = "TITAN_BSM_Options.csv"
 LAST60_CSV = "last60daytitan.csv"
 OUT_DIR = "."
 RISK_FREE_RATE = 0.06513
 MC_DRAWS = 100_000
-INCLUDE_VEGA_IN_VAR = True  # Changed to True - vega is real risk!
-USE_FULL_REPRICING = True   # NEW: Use full repricing for historical VaR
-GREEK_TOLERANCE = 1e-10     # NEW: Threshold to detect effectively zero Greeks
-# ------------------------------------
+INCLUDE_VEGA_IN_VAR = True  
+USE_FULL_REPRICING = True   
+GREEK_TOLERANCE = 1e-10     
 
 # ---------- Black-Scholes helpers ----------
 def bs_price_call(S, K, T, r, sigma):
