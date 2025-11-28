@@ -4,13 +4,9 @@ from scipy.stats import norm
 from math import log, sqrt, exp
 from tvDatafeed import TvDatafeed, Interval
 
-# ---------------------------
-# USER INPUTS
-# ---------------------------
 tv = TvDatafeed()  # Initialize TvDatafeed
 S0 =  float(tv.get_hist('TITAN', 'NSE').close.iloc[-1])    # Underlying price
-r = 0.07         # Risk-free annual rate
-# ---------------------------
+r = 0.0654
 
 # Black–Scholes pricing
 def bs_call(S, K, T, r, sigma):
@@ -27,10 +23,6 @@ def bs_put(S, K, T, r, sigma):
     d2 = d1 - sigma*np.sqrt(T)
     return K*np.exp(-r*T)*norm.cdf(-d2) - S*norm.cdf(-d1)
 
-
-# ---------------------------
-# IMPLIED VOLATILITY SOLVER
-# ---------------------------
 def implied_vol_call(C_obs, S, K, T, r, tol=1e-6, max_iter=100):
     sigma = 0.20  # initial guess
     for i in range(max_iter):
@@ -56,10 +48,6 @@ def implied_vol_put(P_obs, S, K, T, r, tol=1e-6, max_iter=100):
         sigma = max(sigma, 1e-6)
     return sigma
 
-
-# ---------------------------
-# GREEK FUNCTIONS
-# ---------------------------
 def d1(S, K, T, r, sigma):
     return (np.log(S/K) + (r + 0.5*sigma**2)*T) / (sigma*np.sqrt(T))
 
@@ -94,10 +82,6 @@ def call_rho(S, K, T, r, sigma):
 def put_rho(S, K, T, r, sigma):
     return (-K*T*np.exp(-r*T)*norm.cdf(-d2(S,K,T,r,sigma))) / 100
 
-
-# ---------------------------
-# LOAD CSV AND CALCULATE EVERYTHING
-# ---------------------------
 df = pd.read_csv('TITAN_BSM_Options.csv')
 df['T'] = df['Maturity_Days'] / 365
 
@@ -121,3 +105,4 @@ output_path = 'titan_greeks.csv'
 df.to_csv(output_path, index=False)
 
 output_path
+
