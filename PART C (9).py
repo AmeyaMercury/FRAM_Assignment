@@ -20,7 +20,7 @@ def calc_iv(market_price, S, K, T, r, option_type='call'):
     except:
         return np.nan
 
-# Read CSV
+# Read the real option data downloaded from NSE website
 df = pd.read_csv('option_chain_data.csv', skiprows=1)
 df.columns = df.columns.str.strip()
 
@@ -165,4 +165,5 @@ print(f"Call options: {len(surface_df[surface_df['Type']=='Call'])}")
 print(f"Put options: {len(surface_df[surface_df['Type']=='Put'])}")
 print(f"Average IV (Calls): {surface_df[surface_df['Type']=='Call']['IV'].mean():.2f}%")
 print(f"Average IV (Puts): {surface_df[surface_df['Type']=='Put']['IV'].mean():.2f}%")
+
 print("=" * 60)
