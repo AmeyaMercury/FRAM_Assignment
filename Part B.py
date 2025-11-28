@@ -80,6 +80,7 @@ else:
     maturities_years = [days / 365 for days in maturities_days]
     
     # Risk-free rate (using approximate Indian T-Bill rate)
+    # r is calculated using closing rate of Indian 10 year T-bill
     bond_data = tv.get_hist(symbol='IN10Y',
     exchange='TVC',
     interval=Interval.in_daily,
@@ -159,3 +160,4 @@ else:
     })
     print(params.to_string(index=False))
     print("="*60)
+
