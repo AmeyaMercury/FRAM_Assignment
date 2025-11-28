@@ -109,4 +109,5 @@ else:
     
     # Export to CSV (optional)
     df.to_csv(f'{symbol}_data.csv')
+
     print(f"\nData exported to {symbol}_data.csv")
