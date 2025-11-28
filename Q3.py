@@ -96,34 +96,19 @@ def implied_volatility(option_price, S, K, T, r, option_type='call'):
     except:
         return np.nan
 
-# ==================== FETCH NSE OPTION CHAIN ====================
-
 def fetch_nse_option_chain(symbol="TITAN"):
-    """
-    Fetch option chain data from NSE
-    Note: NSE has restrictions, this is a template
-    You may need to use alternative sources or manual data
-    """
+
     print(f"\n⚠ Note: Automated NSE scraping may be restricted.")
     print("For demonstration, generating synthetic market data based on BSM model...")
-    
-    # For demonstration, we'll create synthetic market prices
-    # In practice, you would fetch this from NSE or your broker's API
     return None
-
-# ==================== MAIN ANALYSIS ====================
 
 print("="*80)
 print("OPTION GREEKS & IMPLIED VOLATILITY ANALYSIS - TITAN")
 print("="*80)
 
-# Initialize and fetch stock data
-username = 'your_tradingview_username'
-password = 'your_tradingview_password'
-
 try:
-    tv = TvDatafeed(username=username, password=password)
-    print("✓ Logged in successfully")
+    tv = TvDatafeed()
+    print("Logged in successfully")
 except:
     tv = TvDatafeed()
     print("⚠ Using anonymous mode")
@@ -425,4 +410,5 @@ print("="*80)
 print("Files generated:")
 print("  1. TITAN_Greeks_IV_Analysis.xlsx - Complete Greeks and IV data")
 print("  2. TITAN_Greeks_IV_Analysis.png - Visualization plots")
+
 print("="*80)
