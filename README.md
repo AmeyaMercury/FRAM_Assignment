@@ -1,5 +1,7 @@
 # FRAM_Assignment
-This is the directory used for the FRAM assignment for finding data on TITAN company's stock
+This is the directory used for the FRAM assignment for finding data on the TITAN company's stock
 
 Important :
-risk free rate : closing rate of 10 yr Indian treasury bond
+Risk-free rate: closing rate of 10-year Indian treasury bond
+
+Codes have been written in the files named - Part X (specific question number).py
