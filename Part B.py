@@ -86,7 +86,7 @@ else:
     interval=Interval.in_daily,
     n_bars=1)
 
-    r = 0.0654
+    r = float(bond_data['close'].iloc[-1])/100
     
     print(f"Risk-free rate: {r*100:.1f}%")
     print(f"{'='*60}\n")
@@ -160,4 +160,5 @@ else:
     })
     print(params.to_string(index=False))
     print("="*60)
+
 
